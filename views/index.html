@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/public/styles.css">
+    <link href="styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile card</title>
 </head>
@@ -15,12 +15,19 @@
         
         <!--Card middle-->
         <div class="card card-mid">
-            <div id="profile-picture" class="picture img"></div>
+            <!--profile pic-->
+            <div id="profile-picture" class="picture img">
+                <label for="file">Upload picture</label>
+                <input type="file" name="file" id="file">
+                <img src="" name="file" alt="" id="image" class="img-actual-uploaded">
+            </div>
+            <!--user information-->
             <div id="user-info" class="info userinfo">
                 <h2 id="username" class="username uname user-name"></h2>
                 <h3 id="fname" class="firstname first first-name"></h3>
                 <h3 id="lname" class="lastname last last-name"></h3>
             </div>
+            <!--contact info-->
             <div id="contact-info" class="contact contact-info cinfo">
                 <phone id="phone" class="phonenumber number cell phone-number"></phone>
                 <address id="address" class="address addy location loca addr"></address>
