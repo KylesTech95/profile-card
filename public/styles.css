@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:#333;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    height:100vh;
+}
+#profile-container{
+    height:475px;
+    width:100%;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.card{
+    position:absolute;
+    border-radius:12px;
+}
+.card-back{
+    height:475px;
+    width:305px;
+    background:indigo;
+    opacity:.75;
+}
+.card-front{
+    height:425px;
+    width:305px;
+    background:indigo;
+    opacity:.75;
+
+}
+.card-mid{
+    height:450px;
+    width:325px;
+    opacity:.85;
+
+    background:white;
+}
