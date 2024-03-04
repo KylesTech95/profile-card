@@ -11,21 +11,34 @@
 
 
     <div id="profile-container">
+
+        <!--card-back-->
         <div class="card card-back"></div>
-        
         <!--Card middle-->
-        <div class="card card-mid">
+        <div class="card card-mid"></div>
+        <!--card-front-->
+        <div class="card card-front"></div>
+
+        <div class="card card-info">
             <!--profile pic-->
             <div id="profile-picture" class="picture img">
-                <label for="file">Upload picture</label>
+                <label for="file" class="file-label">Upload picture</label>
                 <input type="file" name="file" id="file">
-                <img src="" name="file" alt="" id="image" class="img-actual-uploaded">
+                <div class="img-border">
+                    <img src="" name="file" alt="" id="image" class="img-actual-uploaded">
+                </div>
             </div>
             <!--user information-->
             <div id="user-info" class="info userinfo">
-                <h2 id="username" class="username uname user-name"></h2>
-                <h3 id="fname" class="firstname first first-name"></h3>
-                <h3 id="lname" class="lastname last last-name"></h3>
+                <!--firstname-->
+                <input class="open" type="text" name="first" id="first">
+                <h3 class="close" id="fname" class="firstname first first-name"></h3>
+                <!--lastname-->
+                <input class="open" type="text" name="last" id="last">
+                <h3 class="close" id="lname" class="lastname last last-name"></h3>
+                <!--username-->
+                <input class="open" type="text" name="username" id="username">
+                <h3 class="close" id="username" class="username uname user-name"></h3>
             </div>
             <!--contact info-->
             <div id="contact-info" class="contact contact-info cinfo">
@@ -33,8 +46,7 @@
                 <address id="address" class="address addy location loca addr"></address>
             </div>
         </div>
-
-        <div class="card card-front"></div>
+         
     </div>
 
 </body>

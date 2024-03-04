@@ -11,6 +11,28 @@ body{
     justify-content:center;
     height:100vh;
 }
+/*profile picture section*/
+#profile-picture{
+    width: inherit;
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:end;
+    margin:.25rem 0 0 0;
+}
+.file-label,
+#file{
+display:none;
+}
+.img-border{
+width: 140px;
+height:140px;
+border:4px solid silver;
+border-radius: 50%;
+margin-bottom:.25rem;
+cursor:pointer;
+ }
 #profile-container{
     height:475px;
     width:100%;
@@ -20,6 +42,23 @@ body{
     align-items: center;
     justify-content:center;
 }
+
+/*user info*/
+#user-info{
+    height:150px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    gap:1rem;
+}
+.open{
+display:block;
+}
+.close{
+display:none;
+}
 .card{
     position:absolute;
     border-radius:12px;
@@ -28,19 +67,49 @@ body{
     height:475px;
     width:305px;
     background:indigo;
-    opacity:.75;
+    opacity:1;
 }
 .card-front{
     height:425px;
     width:305px;
     background:indigo;
     opacity:.75;
-
 }
 .card-mid{
     height:450px;
     width:325px;
-    opacity:.85;
-
+    opacity:.35;
     background:white;
+}
+
+.card-info{
+    height:425px;
+    width:325px;
+    opacity:.85;
+    z-index:999;
+}
+#user-info{
+    margin-top:.5rem;
+}
+.card-info>div:not(:nth-child(1))>input{
+    padding: .5rem;
+    border-radius: 12px;
+    border:none;
+    outline: none;
+    box-shadow: 0 0 transparent;
+    text-align: center;
+    font-size:18px;
+    animation: glow 1s infinite alternate ease;
+}
+@keyframes  glow {
+    from{
+        box-shadow: inset 0 0 0 0 rgb(255, 255, 255);
+        transition:.25s;
+
+    }
+    to{
+        transition:.25s;
+        box-shadow: inset 0 -3px 4px 1px rgb(0, 135, 0);
+    }
+    
 }
