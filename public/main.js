@@ -18,7 +18,7 @@ const blink =(arr,i,outcome)=>{
 }
 // appear function
 const appear = (arr) => {
-for(let i = arr.length-1; i >=0; i--){
+for(let i = arr.length-1; i >=1; i--){
     const showing = `opacity:1;`
         setTimeout(()=>{
             blink(arr,i,showing)

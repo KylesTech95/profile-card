@@ -167,11 +167,12 @@ input,label,.img-border{
 } */
 
 #submit{
-    padding:.25rem 1rem;
+    padding:.75rem 1.5rem;
     border-radius: 12px;
     border:none;
     cursor:pointer;
     transition:.5s;
+    background:#fff;
 }
 #submit:hover{
     color:#fff;
