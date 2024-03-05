@@ -139,20 +139,20 @@ input,label,.img-border{
 
 @keyframes backcard {
     from{
-        right:100%;
+        right:-100%;
 
     }
     to{
-        right:38%
+        right:40%;
     }
 }
 @keyframes frontcard {
     from{
-        left:100%;
+        left:-100%;
 
     }
     to{
-        left:38%
+        left:40%;
     }
     
 }

@@ -1,5 +1,7 @@
 
 const indexFile = `${__dirname}/views/index.html`
+const sec = process.env.SEC
+
 module.exports = function exportRoutes(app,pool){
     // route to homepage
     app.route('/').get((req,res)=>{
@@ -7,7 +9,6 @@ module.exports = function exportRoutes(app,pool){
     })
     app.route('/card').post(async(req,res)=>{
         let {first,last,username,phone,email} = req.body
-        // res.send(req.body)
         // find collection by email/phone/username
         try{
             const uname = await pool.query('select username from profile where username=$1',[username])
@@ -29,18 +30,33 @@ module.exports = function exportRoutes(app,pool){
         }
     })
 
-app.route('/users').get(async(req,res)=>{
-const users = await  pool.query('select fname,lname,username,phone,email from profile')
-if(users.rows.length > 0){
-    let mappedUsers = [...users.rows].map((user,i)=>{
-        return `${user.fname} ${user.lname} - ${user.username} / ${user.email}`
-    })
-    res.json([...mappedUsers])
+    // obtain all users
+    app.route('/users').get(async(req,res)=>{
+    const users = await  pool.query('select fname,lname,username,phone,email from profile')
+    if(users.rows.length > 0){
+        let mappedUsers = [...users.rows].map((user,i)=>{
+            return ({name: user.fname+' '+user.lname,username:user.username,email:user.email, phone:user.phone})
+         })
+        res.json([...mappedUsers])
 
-}
-else{
-console.log('noone in the db')
-res.redirect('/')
-}
-})
+    }
+    else{
+    console.log('noone in the db')
+    res.redirect('/')
+    }
+    })
+
+    // delete all users
+    app.route(sec?sec:'/esc').get(async(req,res)=>{
+        const users = await  pool.query('select fname,lname,username,phone,email from profile')
+        if(users.rows.length > 0){
+            await pool.query('truncate profile cascade;truncate location cascade;alter sequence profile_id_seq restart with 1')
+            res.send('users have been deleted')
+            
+        }
+        else{
+        console.log('noone in the db')
+        res.redirect('/')
+        }
+    })
 }
