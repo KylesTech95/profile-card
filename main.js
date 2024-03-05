@@ -8,7 +8,7 @@ arr=[...arr].reverse()
 
 // blink function
 const blink =(arr,i,outcome)=>{
-    const l = arr[i].labels;
+    const l = arr[i];
     setTimeout(()=>{
         arr[i].style=outcome;
         if(l.length > 0){
