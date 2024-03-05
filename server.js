@@ -22,9 +22,10 @@ app.use(express.static('public'))
 
 // routes(app)
 // route to homepage
-app.route('/').get((req,res)=>{
-  res.sendFile(indexFile)
-})
+// app.route('/').get((req,res)=>{
+//   res.sendFile(indexFile)
+// })
+routes(app)
 
 
 

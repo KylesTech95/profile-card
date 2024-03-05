@@ -7,5 +7,9 @@ module.exports = function exportRoutes(app){
     app.route('/').get((req,res)=>{
         res.sendFile(indexFile)
     })
+    app.route('/card').post((req,res)=>{
+        let {first,last,username,phone,email} = req.body
+        res.send(req.body)
+    })
 
 }
