@@ -29,4 +29,18 @@ module.exports = function exportRoutes(app,pool){
         }
     })
 
+app.route('/users').get(async(req,res)=>{
+const users = await  pool.query('select fname,lname,username,phone,email from profile')
+if(users.rows.length > 0){
+    let mappedUsers = [...users.rows].map((user,i)=>{
+        return `${user.fname} ${user.lname} - ${user.username} / ${user.email}`
+    })
+    res.json([...mappedUsers])
+
+}
+else{
+console.log('noone in the db')
+res.redirect('/')
+}
+})
 }
