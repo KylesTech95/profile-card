@@ -92,6 +92,8 @@ display:none;
 }
 
 .img-border{
+    top:-50px;
+position:absolute;
 width: 140px;
 height:140px;
 border:.25px solid silver;
@@ -183,6 +185,7 @@ display:none;
     justify-content: center;
     margin: 0 0 2rem 0;    
     animation:cardinfo 1s forwards ease 1s;
+    position:relative;
 }
 input,label,.img-border{
     opacity:0;
