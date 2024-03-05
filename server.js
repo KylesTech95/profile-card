@@ -5,7 +5,7 @@ const path = require('path')
 const app = express();
 //require db
 const routes = require('./routes.js')
-// const { pool } = require('./db')
+const { pool } = require('./db')
 const bp = require('body-parser')
 const indexFile = `${__dirname}/views/index.html`
 
@@ -20,12 +20,7 @@ app.use(bp.urlencoded({extended:true}))
 app.use(express.static('public'))
 
 
-// routes(app)
-// route to homepage
-// app.route('/').get((req,res)=>{
-//   res.sendFile(indexFile)
-// })
-routes(app)
+routes(app,pool)
 
 
 
