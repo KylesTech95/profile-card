@@ -10,6 +10,7 @@ body{
     align-items: center;
     justify-content:center;
     height:100vh;
+    overflow:hidden;
 }
 /*profile picture section*/
 #profile-picture{
@@ -81,6 +82,7 @@ display:flex;
     align-items: center;
     justify-content:center;
     gap:.25rem;
+
 }
 .open{
 display:block;
@@ -94,21 +96,21 @@ display:none;
 }
 .card-back{
     height:550px;
-    width:305px;
+    width:325px;
     background:indigo;
     opacity:1;
     top: 40px;
     right:-100%;
-    animation:backcard 1s ease-in forwards;
+    animation:backcard .75s ease-in forwards;
 
 }
 .card-front{
     height:550px;
-    width:305px;
+    width:325px;
     background:violet;
     opacity:.35;
     bottom: 40px;
-    animation:frontcard 1s ease-in forwards;
+    animation:frontcard .75s ease-in forwards;
     left:-100%;
     
 }
@@ -118,6 +120,20 @@ display:none;
     opacity:.15;
     background:white;
 }
+.card-info{
+    height:425px;
+    width:325px;
+    opacity:.85;
+    z-index:999;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 2rem 0;    
+    opacity:0;
+    animation:cardinfo 1s forwards ease 1s;
+}
+
 @keyframes backcard {
     from{
         right:100%;
@@ -145,20 +161,6 @@ display:none;
     to{
        opacity:1;
     }
-}
-
-.card-info{
-    height:425px;
-    width:325px;
-    opacity:.85;
-    z-index:999;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 2rem 0;    
-    opacity:0;
-    animation:cardinfo .8s forwards ease 1s;
 }
 
 #submit{
