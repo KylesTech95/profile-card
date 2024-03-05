@@ -1,0 +1,161 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:#333;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    height:100vh;
+}
+/*profile picture section*/
+#profile-picture{
+    width: inherit;
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:end;
+    margin:.25rem 0 0 0;
+}
+#file-label,
+#file{
+display:none;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.label{
+    font-family: "Madimi One", sans-serif;
+    margin-left:.5rem;
+}
+.card-info>form>div:not(:nth-child(1))>div>input{
+    padding: .5rem;
+    cursor:text;
+    border-radius: 12px;
+    border:none;
+    outline: none;
+    box-shadow: 0 0 transparent;
+    text-align: center;
+    font-size:18px;
+    animation: glow 1s infinite alternate ease;
+    animation-delay: 3s;
+}
+
+.img-border{
+width: 140px;
+height:140px;
+border:.25px solid silver;
+border-radius: 50%;
+margin-bottom:.25rem;
+cursor:pointer;
+overflow:hidden;
+display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+ }
+#profile-container{
+    height:575px;
+    width:100%;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+/*user info*/
+#user-info{
+    height:150px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    gap:.25rem;
+}
+.open{
+display:block;
+}
+.close{
+display:none;
+}
+.card{
+    position:absolute;
+    border-radius:12px;
+}
+.card-back{
+    height:550px;
+    width:305px;
+    background:indigo;
+    opacity:1;
+    top: 40px;
+}
+.card-front{
+    height:550px;
+    width:305px;
+    background:violet;
+    opacity:.35;
+    bottom: 40px;
+    
+}
+.card-mid{
+    height:450px;
+    width:350px;
+    opacity:.15;
+    background:white;
+}
+
+.card-info{
+    height:425px;
+    width:325px;
+    opacity:.85;
+    z-index:999;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 2rem 0;    
+}
+#submit{
+    padding:.25rem 1rem;
+    border-radius: 12px;
+    border:none;
+    cursor:pointer;
+    transition:.5s;
+}
+#submit:hover{
+    color:#fff;
+    background:#333;
+    transition:.75s;
+    }
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 2rem 0;
+    gap:3rem;
+}
+#user-info{
+    margin-top:.75rem;
+}
+
+@keyframes  glow {
+    from{
+        box-shadow: inset 0 0 0 0 rgb(197, 193, 193);
+
+    }
+    to{
+        box-shadow: inset 0 0 1px .75px #333;
+    }
+    
+}
