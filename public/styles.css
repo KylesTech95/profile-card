@@ -90,30 +90,10 @@ display:block;
 .close{
 display:none;
 }
-.card:not(:nth-child(4)){
+.card{
     position:absolute;
     border-radius:12px;
-    border:none;
-    /* animation:bordercolor 15s infinite forwards; */
 }
-/* @keyframes bordercolor {
-    0%{
-        border:1px solid rgb(130, 69, 174);
-    }
-    25%{
-        border:1px solid rgb(53, 8, 235);
-    }
-    50%{
-        border:1px solid rgb(255, 255, 255);
-    }
-    75%{
-        border:1px solid rgb(53, 8, 235);
-    }
-    100%{
-        border:1px solid rgb(130, 69, 174);
-    }
-    
-} */
 .card-back{
     height:550px;
     width:325px;
@@ -157,7 +137,6 @@ input,label,.img-border{
     transition:.5s;
 }
 
-
 @keyframes backcard {
     from{
         right:100%;
@@ -177,15 +156,23 @@ input,label,.img-border{
     }
     
 }
+/* @keyframes cardinfo {
+    from{
+        opacity:0;
 
-
+    }
+    to{
+       opacity:1;
+    }
+} */
 
 #submit{
-    padding:.25rem 1rem;
+    padding:.75rem 1.5rem;
     border-radius: 12px;
     border:none;
     cursor:pointer;
     transition:.5s;
+    background:#fff;
 }
 #submit:hover{
     color:#fff;
