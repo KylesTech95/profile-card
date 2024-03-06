@@ -1,5 +1,7 @@
 
 const indexFile = `${__dirname}/views/index.html`
+const cardFile = `${__dirname}/views/card.html`
+
 const sec = process.env.SEC
 
 module.exports = function exportRoutes(app,pool){
@@ -7,6 +9,7 @@ module.exports = function exportRoutes(app,pool){
     app.route('/').get((req,res)=>{
         res.sendFile(indexFile)
     })
+    // route to profile card after login
     app.route('/card').post(async(req,res)=>{
         let {first,last,username,phone,email} = req.body
         // find collection by email/phone/username
@@ -23,6 +26,7 @@ module.exports = function exportRoutes(app,pool){
                 await pool.query('insert into profile(fname,lname,username,phone,email) values($1,$2,$3,$4,$5)',[first,last,username,phone,email])
                 const getuname = await pool.query('select username from profile where username=$1',[username])
                 console.log('Welcome '+getuname.rows[0].username+'.\nYou have been added')
+                res.sendFile(cardFile)
             }
         }
         catch(err){
@@ -59,4 +63,6 @@ module.exports = function exportRoutes(app,pool){
         res.redirect('/')
         }
     })
+
+
 }

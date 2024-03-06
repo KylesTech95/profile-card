@@ -22,6 +22,48 @@ body{
     justify-content:end;
     margin:.25rem 0 0 0;
 }
+h3{
+    font-size:18px;
+    color:#fff;
+    font-family: "Madimi One", sans-serif;
+
+}
+#contact-info>div>span{
+    font-size:48px;
+
+}
+.span-border{
+border:4px solid #fff;
+border-radius: 50%;
+padding: .75rem;
+}
+
+#contact-info,
+#name-container,#contact-container{
+    width: 100%;
+    display: flex;
+}
+#contact-info{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2.75rem;
+}
+#contact-container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+#name-container{
+    margin-left:3em;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+}
 #file-label,
 #file{
 display:none;
@@ -50,6 +92,8 @@ display:none;
 }
 
 .img-border{
+    top:-50px;
+position:absolute;
 width: 140px;
 height:140px;
 border:.25px solid silver;
@@ -62,6 +106,7 @@ display:flex;
     align-items: center;
     justify-content:center;
  }
+
 #profile-container{
     transform: scale(.85);
     height:575px;
@@ -83,6 +128,15 @@ display:flex;
     justify-content:center;
     gap:.25rem;
 
+}
+#user-display{
+    height:200px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    gap:3rem;
 }
 .open{
 display:block;
@@ -131,6 +185,7 @@ display:none;
     justify-content: center;
     margin: 0 0 2rem 0;    
     animation:cardinfo 1s forwards ease 1s;
+    position:relative;
 }
 input,label,.img-border{
     opacity:0;
