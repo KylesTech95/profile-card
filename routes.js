@@ -1,6 +1,8 @@
 
 const indexFile = `${__dirname}/views/index.html`
 const cardFile = `${__dirname}/views/card.html`
+const validation = require('./validation.js')
+
 
 const sec = process.env.SEC
 
@@ -13,6 +15,7 @@ module.exports = function exportRoutes(app,pool){
     app.route('/card').post(async(req,res)=>{
         let {first,last,username,phone,email} = req.body
         // find collection by email/phone/username
+        
         try{
             const uname = await pool.query('select username from profile where username=$1',[username])
             const p = await pool.query('select phone from profile where phone=$1',[phone])
@@ -24,14 +27,18 @@ module.exports = function exportRoutes(app,pool){
             }
             else{
                 await pool.query('insert into profile(fname,lname,username,phone,email) values($1,$2,$3,$4,$5)',[first,last,username,phone,email])
-                const getuname = await pool.query('select username from profile where username=$1',[username])
-                console.log('Welcome '+getuname.rows[0].username+'.\nYou have been added')
+                const getuser = await pool.query('select * from profile where username=$1',[username])
+                console.log('Welcome '+getuser.rows[0].username+'.\nYou have been added')
+                validation(getuser.rows[0].fname)
                 res.sendFile(cardFile)
             }
         }
         catch(err){
             console.log(err)
         }
+    })
+    app.route('/card').get((req,res)=>{
+        res.json(req.body)
     })
 
     // obtain all users

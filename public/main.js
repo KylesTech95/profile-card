@@ -27,3 +27,24 @@ for(let i = arr.length-1; i >=0; i--){
 }
 }
 appear(arr)
+
+//___________________
+const xhr = new XMLHttpRequest();
+const method = "GET"
+const url = '/card'
+
+xhr.onreadystatechange = function(){
+    if(this.readyState==4&&this.status==200){
+      // action  
+      fetch(url).then(res=>{
+        return res.json()
+      })
+      .then(d=>{
+        console.log(d)
+      })
+    }
+
+}
+xhr.open(method,url,true);
+xhr.send();
+

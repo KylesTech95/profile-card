@@ -153,9 +153,9 @@ display:none;
     width:325px;
     background:indigo;
     opacity:1;
-    top: 40px;
-    right:-100%;
-    animation:backcard 2s ease infinite alternate;
+    /* top: 40px; */
+    /* right:-100%; */
+    animation:backcard 3.25s ease infinite alternate;
 
 }
 .card-front{
@@ -163,9 +163,9 @@ display:none;
     width:325px;
     background:violet;
     opacity:.35;
-    bottom: 40px;
-    animation:frontcard 2s ease infinite alternate;
-    left:-100%;
+    /* bottom: 40px; */
+    animation:frontcard 3s ease infinite alternate-reverse;
+    /* left:-100%; */
     
 }
 .card-mid{
@@ -194,20 +194,24 @@ input,label,.img-border{
 
 @keyframes backcard {
     from{
-        right:38%;
+        bottom:5px;
+        transform:translate(-15px,0)
 
     }
     to{
-        right:38.75%;
+        bottom:0;
+        transform:translate(10px,0)
     }
 }
 @keyframes frontcard {
     from{
-        left:38%;
+        top:5px;
+        transform:translate(15px,0)
 
     }
     to{
-        left:38.75%;
+        top:0;
+        transform:translate(-10px,0)
     }
     
 }
