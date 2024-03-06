@@ -8,7 +8,7 @@ arr=[...arr].reverse()
 
 // blink function
 const blink =(arr,i,outcome)=>{
-    const l = arr[i].labels;
+    const l = arr[i];
     setTimeout(()=>{
         arr[i].style=outcome;
         if(l.length > 0){
@@ -31,16 +31,14 @@ appear(arr)
 //___________________
 const xhr = new XMLHttpRequest();
 const method = "GET"
-const url = '/card'
+const url = window.location.origin+'/card'
 
 xhr.onreadystatechange = function(){
     if(this.readyState==4&&this.status==200){
       // action  
-      fetch(url).then(res=>{
-        return res.json()
-      })
-      .then(d=>{
-        console.log(d)
+      $.get(url,(data,status)=>{
+        console.log(data)
+        console.log(status)
       })
     }
 

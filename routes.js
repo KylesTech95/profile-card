@@ -38,7 +38,7 @@ module.exports = function exportRoutes(app,pool){
         }
     })
     app.route('/card').get((req,res)=>{
-        res.json(req.body)
+        res.json(req.query)
     })
 
     // obtain all users
