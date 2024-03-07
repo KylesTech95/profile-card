@@ -1,7 +1,6 @@
 
 const indexFile = `${__dirname}/views/index.html`
 const cardFile = `${__dirname}/views/card.html`
-const validation = require('./validation.js')
 
 
 const sec = process.env.SEC
@@ -11,8 +10,8 @@ module.exports = function exportRoutes(app,pool){
     app.route('/').get((req,res)=>{
         res.sendFile(indexFile)
     })
-    // route to profile card after login
-    app.route('/card').post(async(req,res)=>{
+    // route to new user
+    app.route('/new-user').post(async(req,res)=>{
         let {first,last,username,phone,email} = req.body
         // find collection by email/phone/username
         
@@ -27,19 +26,16 @@ module.exports = function exportRoutes(app,pool){
             }
             else{
                 await pool.query('insert into profile(fname,lname,username,phone,email) values($1,$2,$3,$4,$5)',[first,last,username,phone,email])
-                const getuser = await pool.query('select * from profile where username=$1',[username])
+                const getuser = await pool.query('select fname,lname,username,phone,email from profile where phone=$1',[phone])
                 console.log('Welcome '+getuser.rows[0].username+'.\nYou have been added')
-                validation(getuser.rows[0].fname)
-                res.sendFile(cardFile)
+                res.json(getuser.rows[0])
             }
         }
         catch(err){
             console.log(err)
         }
     })
-    app.route('/card').get((req,res)=>{
-        res.json(req.query)
-    })
+   
 
     // obtain all users
     app.route('/users').get(async(req,res)=>{
@@ -61,7 +57,7 @@ module.exports = function exportRoutes(app,pool){
     app.route(sec?sec:'/esc').get(async(req,res)=>{
         const users = await  pool.query('select fname,lname,username,phone,email from profile')
         if(users.rows.length > 0){
-            await pool.query('truncate profile cascade;truncate location cascade;alter sequence profile_id_seq restart with 1')
+            await pool.query('truncate profile;alter sequence profile_id_seq restart with 1')
             res.send('users have been deleted')
             
         }

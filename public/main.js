@@ -29,20 +29,18 @@ for(let i = arr.length-1; i >=0; i--){
 appear(arr)
 
 //___________________
-const xhr = new XMLHttpRequest();
-const method = "GET"
-const url = window.location.origin+'/card'
+// const xhr = new XMLHttpRequest();
+// const method = "POST"
+// const url = window.location.origin+'/new-user'
 
-xhr.onreadystatechange = function(){
-    if(this.readyState==4&&this.status==200){
-      // action  
-      $.get(url,(data,status)=>{
-        console.log(data)
-        console.log(status)
-      })
-    }
+// xhr.onreadystatechange = function(){
+//     if(this.readyState==4&&this.status==200){
+//       // action  
+//       $.post(url,(d,status)=>console.log(d))
+      
+//     }
 
-}
-xhr.open(method,url,true);
-xhr.send();
+// }
+// xhr.open(method,url,true);
+// xhr.send();
 
